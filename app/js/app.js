@@ -105,8 +105,11 @@
  * - Added ng-clip third party library to enable copy link functionality
  * - Enabled deep-linking for SRM Problems (user.coding state)
  *
+ * Changes in version 1.29 (Web Arena - Scrolling Issues Fixes):
+ * - Updated CodeMirror to latest version and added scrollbar plugin
+ *
  * @author tangzx, dexy, amethystlei, ananthhh, flytoj2ee, Helstein, TCSASSEMBLER
- * @version 1.28
+ * @version 1.29
  */
 'use strict';
 /*jshint -W097*/
@@ -121,7 +124,7 @@ require('./../../bower_components/angular-themer');
 require('./../../bower_components/angular-ui-angular/angular-cookies.min.js');
 require('./../../bower_components/angular-ui-router/release/angular-ui-router');
 require('./../../bower_components/angular-bootstrap/ui-bootstrap-tpls');
-require('./../../bower_components/codemirror/lib/codemirror');
+global.CodeMirror = require('./../../bower_components/codemirror/lib/codemirror');
 require('./../../bower_components/angular-ui-codemirror/ui-codemirror');
 require('./../../bower_components/codemirror/mode/clike/clike');
 require('./../../bower_components/codemirror/mode/vb/vb');
@@ -131,6 +134,7 @@ require('./../../bower_components/codemirror/addon/fold/foldgutter');
 require('./../../bower_components/codemirror/addon/fold/brace-fold');
 require('./../../bower_components/codemirror/addon/fold/comment-fold');
 require('./../../bower_components/codemirror/addon/fold/indent-fold');
+require('./../../bower_components/codemirror/addon/scroll/simplescrollbars');
 require('./../../bower_components/codemirror/addon/search/match-highlighter');
 require('./../../bower_components/codemirror/addon/search/searchcursor');
 require('./../../bower_components/codemirror/addon/search/search');

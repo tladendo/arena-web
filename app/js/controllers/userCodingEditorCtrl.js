@@ -55,8 +55,11 @@
  * Changes in version 1.15 (Web Arena Plugin API Part 1):
  * - Added plugin logic for coding editor panel.
  *
- * @author tangzx, amethystlei, flytoj2ee
- * @version 1.15
+ * Changes in version 1.16 (Scrolling Issues Fixes Assembly):
+ * - Changed CodeMirror scrollbar style.
+ *
+ * @author tangzx, amethystlei, flytoj2ee, Helstein
+ * @version 1.16
  */
 'use strict';
 /*global module, CodeMirror, angular, document, $, window */
@@ -419,9 +422,9 @@ var userCodingEditorCtrl = ['$rootScope', '$scope', '$window', 'appHelper', 'soc
          */
         $scope.setThemeIdx = function (themeIdx) {
             $scope.themeIdx = themeIdx;
-            var _elem = angular.element('ul.editorDropDown > li.dropdown');
-            if (_elem) {
-                closeDropdown(_elem);
+            var elem = angular.element('ul.editorDropDown > li.dropdown');
+            if (elem) {
+                closeDropdown(elem);
             }
         };
 
@@ -458,9 +461,9 @@ var userCodingEditorCtrl = ['$rootScope', '$scope', '$window', 'appHelper', 'soc
             $scope.langIdx = langIdx;
 
             updateArgTypeAndMethod($scope.lang($scope.langIdx).id);
-            var _elem = angular.element('ul.languageDropDown > li.dropdown');
-            if (_elem) {
-                closeDropdown(_elem);
+            var elem = angular.element('ul.languageDropDown > li.dropdown');
+            if (elem) {
+                closeDropdown(elem);
             }
         };
 
@@ -544,6 +547,7 @@ var userCodingEditorCtrl = ['$rootScope', '$scope', '$window', 'appHelper', 'soc
             theme: 'topcoder',
             lineNumbers: true,
             lineWrapping : true,
+            scrollbarStyle: "simple",
             mode: $scope.lang($scope.langIdx).langKey,
             foldGutter: $scope.lang($scope.langIdx).langGutter,
             gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
